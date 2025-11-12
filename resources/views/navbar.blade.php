@@ -50,10 +50,7 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produk</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Toko</a>
+                            <a class="nav-link" href="/produk">Produk</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">Tentang Kami</a>
@@ -70,6 +67,53 @@
     <div class="container-fluid m-0 p-0">
         @yield('content')
     </div>
+    <footer class="mt-5 border-top py-4">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Skoola</h5>
+                    <p class="text-muted mb-0">Marketplace Sekolah Digital untuk memenuhi kebutuhan pendidikan dengan mudah, aman, dan terpercaya.</p>
+                </div>
+
+                <div class="col-md-2">
+                    <h6 class="fw-semibold mb-3">Navigasi</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#" class="text-decoration-none text-muted">Beranda</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Produk</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Toko</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Tentang Kami</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-semibold mb-3">Kategori Populer</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#" class="text-decoration-none text-muted">Alat Tulis</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Seragam Sekolah</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Perlengkapan Kelas</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Buku Pelajaran</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3">
+                    <h6 class="fw-semibold mb-3">Hubungi Kami</h6>
+                    <p class="text-muted mb-1"><i class="bi bi-envelope me-2"></i>support@skoola.id</p>
+                    <p class="text-muted mb-1"><i class="bi bi-telephone me-2"></i>+62 812 3456 7890</p>
+                    <div class="mt-2">
+                        <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-dark"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="text-center text-muted small">
+            © 2025 <strong>Skoola</strong>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 <script src="{{asset('asset/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
