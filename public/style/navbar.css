@@ -38,6 +38,11 @@
     border-color: var(--black);
 }
 
+.btn-primary:active {
+    background-color: var(--black) !important;
+    border-color: var(--black) !important;
+}
+
 .btn-outline {
     background-color: white;
     color: var(--malachite);

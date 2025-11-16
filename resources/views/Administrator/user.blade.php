@@ -9,7 +9,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="#" method="post">
+            <form action="{{route('user.store')}}" method="post">
                 @csrf
                 <div class="modal-body">
 
@@ -72,6 +72,22 @@
         </div>
     </div>
 </div>
+@if (Session::get('pesan'))
+    <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        {{ Session::get('pesan') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>  
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container">
     <div class="d-flex justify-content-between">
         <h2 class="mt-4 fw-bold">User</h2>
@@ -89,16 +105,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Hadi</td>
-                <td>Hadi777</td>
-                <td>1234567890987</td>
-                <td>Admin</td>
-                <td>
-                    <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></button>
-                    <button class="btn btn-sm btn-warning"><i class="bi bi-trash-fill"></i></button>
-                </td>
-            </tr>
+            @foreach ( $users as $item )
+                <tr>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->username}}</td>
+                    <td>{{$item->kontak}}</td>
+                    <td>{{$item->role}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></button>
+                        <a href="{{route('user.delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')" class="btn btn-sm btn-warning"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            @endforeach
 
         </tbody>
     </table>

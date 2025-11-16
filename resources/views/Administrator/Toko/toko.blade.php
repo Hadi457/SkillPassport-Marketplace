@@ -9,7 +9,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Toko</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="{{route('toko.admin.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 
@@ -67,9 +67,10 @@
                                 <option value="">-- Pilih User --</option>
                                 
                                 {{-- Loop user (isi dari controller) --}}
-                                {{-- @foreach ($users as $user)
+                                @foreach ($user as $user)
                                     <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->username }})</option>
-                                @endforeach --}}
+                                @endforeach
+
                             </select>
                         </div>
                     </div>
@@ -84,6 +85,22 @@
         </div>
     </div>
 </div>
+@if (Session::get('pesan'))
+    <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        {{ Session::get('pesan') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>  
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container">
     <div class="d-flex justify-content-between">
         <h2 class="mt-4 fw-bold">Toko</h2>
@@ -103,7 +120,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            @foreach ( $stores as $item )
+                <tr>
+                    <td>{{ $item->nama_toko }}</td>
+                    <td>{{ $item->deskripsi }}</td>
+                    <td>{{ $item->gambar }}</td>
+                    <td>{{ $item->kontak_toko }}</td>
+                    <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->user->name }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-sm btn-warning"><i class="bi bi-trash-fill"></i></button>
+                    </td>
+                </tr>
+            @endforeach
+            {{-- <tr>
                 <td>Tokoku</td>
                 <td>Lorem ipsum dolor sit amet consectetur</td>
                 <td>gambar.jpg</td>
@@ -114,7 +145,7 @@
                     <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></button>
                     <button class="btn btn-sm btn-warning"><i class="bi bi-trash-fill"></i></button>
                 </td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </div>

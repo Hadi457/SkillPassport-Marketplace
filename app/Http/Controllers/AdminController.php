@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Store;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,9 +15,12 @@ class AdminController extends Controller
         return view('beranda');
     }
     public function User(){
-        return view('Administrator.user');
+        $data['users'] = User::all();
+        return view('Administrator.user', $data);
     }
     public function Toko(){
-        return view('Administrator.Toko.toko');
+        $data['user'] = User::all();
+        $data['stores'] = Store::all();
+        return view('Administrator.Toko.toko', $data);
     }
 }
