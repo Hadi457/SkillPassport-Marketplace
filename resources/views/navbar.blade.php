@@ -86,7 +86,6 @@
                     <h5 class="fw-bold">Skoola</h5>
                     <p class="text-muted mb-0">Marketplace Sekolah Digital untuk memenuhi kebutuhan pendidikan dengan mudah, aman, dan terpercaya.</p>
                 </div>
-
                 <div class="col-md-2">
                     <h6 class="fw-semibold mb-3">Navigasi</h6>
                     <ul class="list-unstyled text-muted">
@@ -96,7 +95,6 @@
                         <li><a href="#" class="text-decoration-none text-muted">Tentang Kami</a></li>
                     </ul>
                 </div>
-
                 <div class="col-md-3">
                     <h6 class="fw-semibold mb-3">Kategori Populer</h6>
                     <ul class="list-unstyled text-muted">
@@ -106,8 +104,6 @@
                         <li><a href="#" class="text-decoration-none text-muted">Buku Pelajaran</a></li>
                     </ul>
                 </div>
-
-
                 <div class="col-md-3">
                     <h6 class="fw-semibold mb-3">Hubungi Kami</h6>
                     <p class="text-muted mb-1"><i class="bi bi-envelope me-2"></i>support@skoola.id</p>
@@ -119,7 +115,6 @@
                     </div>
                 </div>
             </div>
-
             <hr class="my-4">
             <div class="text-center text-muted small">
             © 2025 <strong>Skoola</strong>

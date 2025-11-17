@@ -33,17 +33,14 @@ class AdminController extends Controller
         $data['users'] = User::all();
         return view('Administrator.user', $data);
     }
-    public function Toko($id = null)
-    {
-        $data['user'] = User::all(); // data user aman
-
+    public function Toko($id = null){
         if ($id) {
             $id = $this->decrypId($id);
-            $data['store'] = Store::findOrFail($id); // store satuan
+            $data['stores'] = Store::findOrFail($id);
         }
 
-        $data['stores'] = Store::all(); // semua store
+        $data['stores'] = Store::all();
+        $data['user'] = User::all(); // diperlukan untuk select owner di modal
         return view('Administrator.Toko.toko', $data);
     }
-
 }

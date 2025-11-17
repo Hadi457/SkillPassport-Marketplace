@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
+    public function decrypId($id){
+        try {
+            return Crypt::decrypt($id);
+        } catch (DecryptException $e) {
+            abort(404);
+        }
+    }
     public function Index(){
         return view('toko');
     }
@@ -74,44 +81,35 @@ class StoreController extends Controller
         Store::create($validate);
         return redirect()->route('toko.admin')->with('pesan', 'Toko berhasil dibuat.');
     }
-    public function Update(Request $request, $id)
-    {
-        $toko = Store::findOrFail($id);
 
+
+    public function Update(Request $request, String $id){
+        // Mengubah id yang di enkripsi menjadi ke id asalnya
+        $id = $this->decrypId($id);
+
+        // Validasi Input
         $validate = $request->validate([
             'nama_toko' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:1000',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'alamat' => 'required|string|max:500',
             'kontak_toko' => 'required|string|max:15',
-            'users_id' => 'required|exists:users,id|unique:stores,users_id,' . $toko->id,
         ]);
 
-        // Cek apakah user ini memiliki toko lain
-        if (Store::where('users_id', $request->users_id)->where('id', '!=', $toko->id)->exists()) {
-            return back()->withErrors(['User ini sudah memiliki toko lain.']);
-        }
-
-        // Jika user upload gambar baru
-        if ($request->hasFile('gambar')) {
-
-            // Hapus gambar lama jika ada
-            if ($toko->gambar && file_exists(storage_path('app/public/gambar-toko/' . $toko->gambar))) {
-                unlink(storage_path('app/public/gambar-toko/' . $toko->gambar));
+        $toko = Store::findOrFail($id);
+        if($request->hasFile('gambar')){
+            if(Storage::exists('public/gambar-toko/'.$toko->gambar)){
+                Storage::delete('public/gambar-toko/' . $toko->gambar);
             }
-
-            // Upload gambar baru
             $image = $request->file('gambar');
-            $filename = time() . "-" . $request->nama_toko . "." . $image->getClientOriginalExtension();
+            $filename = time(). "-" . $request->judul . "." . $image->getClientOriginalExtension();
             $image->storeAs('public/gambar-toko', $filename);
-
             $validate['gambar'] = $filename;
         }
 
-        // Update data toko
+        // Profile di Update
         $toko->update($validate);
-
-        return redirect()->route('toko.admin')->with('pesan', 'Toko berhasil diperbarui.');
+        return redirect()->route('toko.admin')->with('sukses','Berhasil mengubah toko');
     }
 
     public function Delete(String $id){
@@ -122,13 +120,6 @@ class StoreController extends Controller
         }
         $toko->delete();
         return redirect()->back()->with('sukses','Toko berhasil dihapus.');
-    }
-    public function decrypId($id){
-        try {
-            return Crypt::decrypt($id);
-        } catch (DecryptException $e) {
-            abort(404);
-        }
     }
     public function Detail(String $id){
         $id = $this->decrypId($id);

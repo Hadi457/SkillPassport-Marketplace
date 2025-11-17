@@ -11,7 +11,6 @@
                 <form action="{{route('toko.admin.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
-
                         <!-- Nama Toko -->
                         <div class="mb-3">
                             <label for="nama_toko" class="form-label fw-semibold">Nama Toko <span class="text-danger">*</span></label>
@@ -20,7 +19,6 @@
                                 <input type="text" class="form-control" id="nama_toko" name="nama_toko" required placeholder="Masukan Nama Toko">
                             </div>
                         </div>
-
                         <!-- Deskripsi -->
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label fw-semibold">Deskripsi <span class="text-danger">*</span></label>
@@ -29,7 +27,6 @@
                                 <textarea class="form-control" id="deskripsi" name="deskripsi" required placeholder="Masukan Deskripsi Toko" rows="3"></textarea>
                             </div>
                         </div>
-
                         <!-- Gambar -->
                         <div class="mb-3">
                             <label for="gambar" class="form-label fw-semibold">Gambar Toko <span class="text-danger">*</span></label>
@@ -38,7 +35,6 @@
                                 <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" required>
                             </div>
                         </div>
-
                         <!-- Kontak Toko -->
                         <div class="mb-3">
                             <label for="kontak_toko" class="form-label fw-semibold">Kontak Toko <span class="text-danger">*</span></label>
@@ -47,7 +43,6 @@
                                 <input type="text" class="form-control" id="kontak_toko" name="kontak_toko" maxlength="13" required placeholder="Masukan Nomor Telepon Toko">
                             </div>
                         </div>
-
                         <!-- Alamat -->
                         <div class="mb-3">
                             <label for="alamat" class="form-label fw-semibold">Alamat <span class="text-danger">*</span></label>
@@ -56,9 +51,7 @@
                                 <textarea class="form-control" id="alamat" name="alamat" required placeholder="Masukan Alamat Toko" rows="3"></textarea>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -66,38 +59,38 @@
                 </form>
             </div>
         </div>
-    </div> --}}
-  <!-- Profil Toko -->
-  <div class="card border-0 shadow-sm mb-4">
-    <div class="card-body d-flex flex-column flex-md-row align-items-center gap-3">
-      <!-- Logo / Foto Toko -->
-      <img src="{{ asset('storage/gambar-toko/' . $store->gambar) }}" alt="Toko" class="rounded-circle border" width="100" height="100" style="object-fit: cover;">
-      <!-- Info Toko -->
-      <div>
-        <h3 class="mb-1 fw-bold">{{$store->nama_toko}}</h3>
-        <p class="mb-0"><i class="bi bi-whatsapp me-1"></i>{{$store->kontak_toko}}</p>
-      </div>
-      <!-- Tombol WhatsApp -->
-      <div class="ms-md-auto">
-        <a href="https://wa.me/6281234567890" target="_blank" style="background-color: #020202ff;" class="btn btn-success">
-          <i class="bi bi-whatsapp me-1" style="color: #16DB65"></i> Hubungi via WhatsApp
-        </a>
-      </div>
+    </div> 
+    <!-- Profil Toko -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body d-flex flex-column flex-md-row align-items-center gap-3">
+        <!-- Logo / Foto Toko -->
+        <img src="{{ asset('storage/gambar-toko/' . $store->gambar) }}" alt="Toko" class="rounded-circle border" width="100" height="100" style="object-fit: cover;">
+        <!-- Info Toko -->
+        <div>
+            <h3 class="mb-1 fw-bold">{{$store->nama_toko}}</h3>
+            <p class="mb-0"><i class="bi bi-whatsapp me-1"></i>{{$store->kontak_toko}}</p>
+        </div>
+        <!-- Tombol WhatsApp -->
+        <div class="ms-md-auto">
+            <a href="https://wa.me/6281234567890" target="_blank" style="background-color: #020202ff;" class="btn btn-success">
+            <i class="bi bi-whatsapp me-1" style="color: #16DB65"></i> Hubungi via WhatsApp
+            </a>
+        </div>
+        </div>
     </div>
-  </div>
-  <!-- Deskripsi Toko -->
-  <div class="mb-5">
-    <h5 class="fw-semibold">Tentang Toko</h5>
-    <p class="text-muted">
-      {{$store->deskripsi}}
-    </p>
-  </div>
-  <!-- Daftar Produk -->
-  <div>
-    <h5 class="fw-semibold mb-3">Produk dari Toko Kreatif</h5>
-    <div class="row g-4">
-      <!-- Produk -->
-      <div class="col-6 col-md-3">
+    <!-- Deskripsi Toko -->
+    <div class="mb-5">
+        <h5 class="fw-semibold">Tentang Toko</h5>
+        <p class="text-muted">
+        {{$store->deskripsi}}
+        </p>
+    </div>
+    <!-- Daftar Produk -->
+    <div>
+        <h5 class="fw-semibold mb-3">Produk dari Toko Kreatif</h5>
+        <div class="row g-4">
+        <!-- Produk -->
+        <div class="col-6 col-md-3">
             <div class="card h-100 shadow-sm border-0">
                 <img src="{{asset('asset/image/SkoolaAssets/2.jpg')}}" class="card-img-top" alt="Pulpen Gel Hitam">
                 <div class="card-body">
@@ -113,5 +106,4 @@
             </div>
         </div>
 </section>
-
 @endsection

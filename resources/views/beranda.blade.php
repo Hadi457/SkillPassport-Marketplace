@@ -22,6 +22,7 @@
             <a href="#" class="btn btn-lihat">Lihat Semua</a>
         </div>
     </div>
+
     <!-- Card -->
     <div class="row">
         @foreach ($stores as $item)
@@ -41,14 +42,12 @@
                                 </small>
                             </div>
                         </div>
-            
                         <div class="d-flex align-items-center mt-3">
                             <small class="text-muted">
                                 <i class="fa-brands fa-whatsapp text-dark me-2"></i>
                                 {{$item->kontak_toko}}
                             </small>
                         </div>
-                        
                         <div class="d-flex align-items-center justify-content-between">
                             <small class="text-muted">
                                 <i class="fa-solid fa-user text-dark me-2"></i>

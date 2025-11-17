@@ -30,11 +30,9 @@
     </style>
     </head>
     <body>
-
     <div class="page-center">
         <div class="login-card">
             <h3 class="text-center mb-3">Daftar</h3>
-
             <form action="{{route('register.post')}}" method="POST" novalidate>
                 @if (Session::get('pesan'))
                     <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
@@ -75,14 +73,12 @@
                     <button type="submit" class="btn btn-login">Masuk</button>
                 </div>
             </form>
-
             <div class="text-register text-center">
                 <small class="text-muted">Sudah punya akun? </small>
                 <a href="/login">Masuk</a>
             </div>
         </div>
     </div>
-
     <!-- Bootstrap JS (opsional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </body>

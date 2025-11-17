@@ -34,7 +34,6 @@
     <div class="page-center">
         <div class="login-card">
             <h3 class="text-center mb-3">Masuk</h3>
-
             <form action="{{route('login.post')}}" method="POST">
                 @if (Session::get('pesan'))
                     <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
@@ -57,24 +56,20 @@
                     <label for="username">Username</label>
                     <input id="username" name="username" type="text" class="form-control" placeholder="Masukkan username" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="password">Password</label>
                     <input id="password" name="password" type="password" class="form-control" placeholder="Masukkan password" required>
                 </div>
-
                 <div class="d-grid gap-2 mt-2">
                     <button type="submit" class="btn btn-login">Masuk</button>
                 </div>
             </form>
-
             <div class="text-register text-center">
                 <small class="text-muted">Belum punya akun? </small>
                 <a href="/register">Daftar</a>
             </div>
         </div>
     </div>
-
     <!-- Bootstrap JS (opsional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </body>

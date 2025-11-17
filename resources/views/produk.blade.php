@@ -1,23 +1,23 @@
 @extends('navbar')
 @section('content')
 <section class="container mt-5">
-  <div class="text-center mb-5">
-    <h2 class="fw-bold">Semua Produk</h2>
-    <p class="text-muted">Temukan berbagai kebutuhan sekolah dari penjual terpercaya di Skoola</p>
-  </div>
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Semua Produk</h2>
+        <p class="text-muted">Temukan berbagai kebutuhan sekolah dari penjual terpercaya di Skoola</p>
+    </div>
 </section>
 <div class="container">
     <div class="row">
         <div class="col-md-3 mb-4">
             <div class="card border-0 shadow-sm p-3">
-            <h6 class="fw-bold mb-3">Filter Kategori</h6>
-            <ul class="list-unstyled">
-                <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Semua</a></li>
-                <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Alat Tulis</a></li>
-                <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Seragam Sekolah</a></li>
-                <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Buku & Literasi</a></li>
-                <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Peralatan Kelas</a></li>
-            </ul>
+                <h6 class="fw-bold mb-3">Filter Kategori</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Semua</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Alat Tulis</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Seragam Sekolah</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Buku & Literasi</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark d-block mb-2">Peralatan Kelas</a></li>
+                </ul>
             </div>
         </div>
         <div class="col-md-9">

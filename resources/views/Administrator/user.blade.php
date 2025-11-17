@@ -64,17 +64,16 @@
         </div>
     </div>
 </div>
+
 @foreach ($users as $item)
-<!-- Modal Edit User -->
+    <!-- Modal Edit User -->
     <div class="modal fade" id="editUser{{ $item->id }}" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                
                 <div class="modal-header">
                     <h5 class="modal-title" id="editUserLabel">Edit User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <form action="{{ route('user.update', $item->id) }}" method="post">
                     @csrf
                     <div class="modal-body">
@@ -154,6 +153,7 @@
         </ul>
     </div>
 @endif
+
 <div class="container">
     <div class="d-flex justify-content-between">
         <h2 class="mt-4 fw-bold">User</h2>
@@ -183,7 +183,6 @@
                     </td>
                 </tr>
             @endforeach
-
         </tbody>
     </table>
 </div>
