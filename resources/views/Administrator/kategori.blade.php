@@ -9,11 +9,9 @@
                 <h5 class="modal-title" id="modalKategoriLabel">Tambah Kategori</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <form action="{{ route('kategori.admin.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-
                     <!-- Nama Kategori -->
                     <div class="mb-3">
                         <label for="nama_kategori" class="form-label fw-semibold">
@@ -22,62 +20,50 @@
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-tags-fill"></i></span>
                             <input type="text" name="nama_kategori" id="nama_kategori" class="form-control"
-                                   placeholder="Masukkan Nama Kategori" required>
+                                placeholder="Masukkan Nama Kategori" required>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
-
-
+<!-- Modal Edit Kategori -->
 @foreach ($kategori as $item)
 <div class="modal fade" id="editKategori{{ $item->id }}" tabindex="-1" aria-labelledby="editKategoriLabel{{ $item->id }}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-
             <div class="modal-header">
                 <h5 class="modal-title" id="editKategoriLabel{{ $item->id }}">Edit Kategori</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <form action="{{ route('kategori.admin.update', Crypt::encrypt($item->id)) }}" method="POST">
                 @csrf
-
                 <div class="modal-body">
-
                     <!-- Nama Kategori -->
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Nama Kategori <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-tags-fill"></i></span>
                             <input type="text" name="nama_kategori" class="form-control"
-                                   value="{{ $item->nama_kategori }}" required>
+                                value="{{ $item->nama_kategori }}" required>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
 @endforeach
-
-
+<!-- Alert -->
 @if (Session::get('pesan'))
     <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
         <i class="fas fa-check-circle me-2"></i>

@@ -12,7 +12,6 @@
             <form action="{{route('toko.admin.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-
                     <!-- Nama Toko -->
                     <div class="mb-3">
                         <label for="nama_toko" class="form-label fw-semibold">Nama Toko <span class="text-danger">*</span></label>
@@ -21,7 +20,6 @@
                             <input type="text" class="form-control" id="nama_toko" name="nama_toko" required placeholder="Masukan Nama Toko">
                         </div>
                     </div>
-
                     <!-- Deskripsi -->
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label fw-semibold">Deskripsi <span class="text-danger">*</span></label>
@@ -30,7 +28,6 @@
                             <textarea class="form-control" id="deskripsi" name="deskripsi" required placeholder="Masukan Deskripsi Toko" rows="3"></textarea>
                         </div>
                     </div>
-
                     <!-- Gambar -->
                     <div class="mb-3">
                         <label for="gambar" class="form-label fw-semibold">Gambar Toko <span class="text-danger">*</span></label>
@@ -39,7 +36,6 @@
                             <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" required>
                         </div>
                     </div>
-
                     <!-- Kontak Toko -->
                     <div class="mb-3">
                         <label for="kontak_toko" class="form-label fw-semibold">Kontak Toko <span class="text-danger">*</span></label>
@@ -48,7 +44,6 @@
                             <input type="text" class="form-control" id="kontak_toko" name="kontak_toko" maxlength="13" required placeholder="Masukan Nomor Telepon Toko">
                         </div>
                     </div>
-
                     <!-- Alamat -->
                     <div class="mb-3">
                         <label for="alamat" class="form-label fw-semibold">Alamat <span class="text-danger">*</span></label>
@@ -57,7 +52,6 @@
                             <textarea class="form-control" id="alamat" name="alamat" required placeholder="Masukan Alamat Toko" rows="3"></textarea>
                         </div>
                     </div>
-
                     <!-- User ID -->
                     <div class="mb-3">
                         <label for="users_id" class="form-label fw-semibold">Pilih User <span class="text-danger">*</span></label>
@@ -80,9 +74,8 @@
         </div>
     </div>
 </div>
-
-@foreach ( $stores as $store )
 <!-- Modal Edit Toko -->
+@foreach ( $stores as $store )
     <div class="modal fade" id="editToko{{ $store->id }}" tabindex="-1" aria-labelledby="editTokoLabel{{ $store->id }}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -90,7 +83,6 @@
                     <h5 class="modal-title" id="editTokoLabel{{ $store->id }}">Edit Toko</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <form action="{{ route('toko.admin-update', Crypt::encrypt($store->id)) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
@@ -103,7 +95,6 @@
                                     value="{{ old('nama_toko', $store->nama_toko) }}" placeholder="Masukan Nama Toko">
                             </div>
                         </div>
-
                         <!-- Deskripsi -->
                         <div class="mb-3">
                             <label for="deskripsi_{{ $store->id }}" class="form-label fw-semibold">Deskripsi <span class="text-danger">*</span></label>
@@ -112,7 +103,6 @@
                                 <textarea class="form-control" id="deskripsi_{{ $store->id }}" name="deskripsi" required rows="3" placeholder="Masukan Deskripsi Toko">{{ old('deskripsi', $store->deskripsi) }}</textarea>
                             </div>
                         </div>
-
                         <!-- Gambar (opsional ganti) -->
                         <div class="mb-3">
                             <label for="gambar_{{ $store->id }}" class="form-label fw-semibold">Gambar Toko <small class="text-muted">(kosongkan jika tidak diganti)</small></label>
@@ -120,7 +110,6 @@
                                 <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
                                 <input type="file" class="form-control" id="gambar_{{ $store->id }}" name="gambar" accept="image/*">
                             </div>
-
                             @if($store->gambar)
                                 <div class="mt-2">
                                     <small>Gambar saat ini:</small><br>
@@ -128,7 +117,6 @@
                                 </div>
                             @endif
                         </div>
-
                         <!-- Kontak Toko -->
                         <div class="mb-3">
                             <label for="kontak_toko_{{ $store->id }}" class="form-label fw-semibold">Kontak Toko <span class="text-danger">*</span></label>
@@ -138,7 +126,6 @@
                                     value="{{ old('kontak_toko', $store->kontak_toko) }}" placeholder="Masukan Nomor Telepon Toko">
                             </div>
                         </div>
-
                         <!-- Alamat -->
                         <div class="mb-3">
                             <label for="alamat_{{ $store->id }}" class="form-label fw-semibold">Alamat <span class="text-danger">*</span></label>
@@ -147,24 +134,17 @@
                                 <textarea class="form-control" id="alamat_{{ $store->id }}" name="alamat" required rows="3" placeholder="Masukan Alamat Toko">{{ old('alamat', $store->alamat) }}</textarea>
                             </div>
                         </div>
-
-                        <!-- User ID (tidak boleh diubah) -->
+                        <!-- User ID  -->
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Pemilik Toko</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-
-                                <!-- tampilkan nama user tapi disabled -->
                                 <input type="text" class="form-control" value="{{ $store->user->name ?? '—' }} ({{ $store->user->username ?? '' }})" disabled>
-
-                                <!-- tetap kirim users_id sebagai hidden agar controller tahu pemilik -->
                                 <input type="hidden" name="users_id" value="{{ $store->users_id }}">
                             </div>
                             <small class="text-muted">Pemilik toko tidak dapat diubah lewat form ini.</small>
                         </div>
-
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Perbarui</button>
@@ -174,24 +154,7 @@
         </div>
     </div>
 @endforeach
-
-@if (Session::get('pesan'))
-    <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
-        <i class="fas fa-check-circle me-2"></i>
-        {{ Session::get('pesan') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>  
-@endif
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul class="mb-0">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
+<!-- Alert -->
 @if (Session::get('pesan'))
     <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
         <i class="fas fa-check-circle me-2"></i>

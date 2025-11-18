@@ -20,10 +20,6 @@ class StoreController extends Controller
         }
     }
 
-    public function Index(){
-        return view('toko');
-    }
-
     public function TokoMember(){
         $data['toko'] = Store::where('users_id', Auth::id())->first();
         return view('Member.Toko.toko-member', $data);

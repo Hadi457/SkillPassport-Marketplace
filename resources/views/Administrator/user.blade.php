@@ -65,8 +65,8 @@
     </div>
 </div>
 
+<!-- Modal Edit User -->
 @foreach ($users as $item)
-    <!-- Modal Edit User -->
     <div class="modal fade" id="editUser{{ $item->id }}" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -74,7 +74,7 @@
                     <h5 class="modal-title" id="editUserLabel">Edit User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('user.update', $item->id) }}" method="post">
+                <form action="{{ route('user.update', Crypt::encrypt($item->id)) }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <!-- Name -->
@@ -136,7 +136,7 @@
         </div>
     </div>
 @endforeach
-
+<!-- Alert -->
 @if (Session::get('pesan'))
     <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
         <i class="fas fa-check-circle me-2"></i>

@@ -1,11 +1,11 @@
 @extends('navbar')
 @section('content')
-<section class="container mt-5">
+<div class="container mt-5">
     <div class="text-center mb-5">
         <h2 class="fw-bold">Semua Produk</h2>
         <p class="text-muted">Temukan berbagai kebutuhan sekolah dari penjual terpercaya di Skoola</p>
     </div>
-</section>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-3 mb-4">

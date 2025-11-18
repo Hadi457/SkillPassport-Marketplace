@@ -7,13 +7,17 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Route;
 
+// Public Route
 Route::get('/', [AdminController::class, 'Beranda'])->name('beranda');
 Route::get('/about', [AboutController::class, 'Index'])->name('about');
 Route::get('/produk', [ProductController::class, 'Index'])->name('produk');
+Route::get('/toko/detail/{id}', [StoreController::class, 'Detail'])->name('toko.detail');
 Route::get('/toko', [StoreController::class, 'Index'])->name('toko');
 
+// Admin Route
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'Dashboard'])->name('dashboard');
 
@@ -34,12 +38,13 @@ Route::middleware(['admin'])->group(function () {
 
 });
 
+// Member Route
 Route::middleware(['member'])->group(function () {
     Route::get('/toko/toko-member', [StoreController::class, 'TokoMember'])->name('toko.member');
     Route::post('/toko/create', [StoreController::class, 'TokoMemberCreate'])->name('toko.member.store');
-    Route::get('/toko/detail/{id}', [StoreController::class, 'Detail'])->name('toko.detail');
 });
 
+// Authentication Route
 Route::get('/login', [AuthController::class, 'Index'])->name('login');
 Route::post('/login', [AuthController::class, 'Authentication'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'Logout'])->name('logout');

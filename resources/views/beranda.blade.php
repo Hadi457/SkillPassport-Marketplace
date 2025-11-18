@@ -22,7 +22,6 @@
             <a href="#" class="btn btn-lihat">Lihat Semua</a>
         </div>
     </div>
-
     <!-- Card -->
     <div class="row">
         @foreach ($stores as $item)

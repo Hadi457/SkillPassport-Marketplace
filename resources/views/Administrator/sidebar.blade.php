@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="{{ asset('style/sidebar.css') }}">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
         <link href="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.css" rel="stylesheet">
@@ -23,7 +22,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css" rel="stylesheet">
-
     </head>
     <body>
         <!-- Sidebar -->
@@ -52,7 +50,6 @@
                 <a href="/logout">keluar<i class="bi bi-box-arrow-right ms-2"></i></a>
             </div>
         </div>
-
         <!-- Main Content -->
         <div class="content">
             @yield('content')

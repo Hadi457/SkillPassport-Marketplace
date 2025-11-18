@@ -2,20 +2,18 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('style/about.css') }}">
 <section class="container-fluid text-center m-0 p-0">
-    <div class="p-5 text-white"
-        style="background: 
-                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url({{ asset('asset/image/SkoolaAssets/3.jpg') }}) center/cover no-repeat; height: 500px;">
-        <div class="container d-flex flex-column justify-content-center align-items-start h-100">
-            <h1 class="fw-semibold mb-3">Tentang Skoola</h1>
-            <p class="mb-4 text-start w-50">Skoola adalah platform marketplace pendidikan yang menghubungkan penjual dan pembeli kebutuhan belajar dalam satu tempat.
+  <div class="p-5 text-white"
+      style="background: 
+              linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url({{ asset('asset/image/SkoolaAssets/3.jpg') }}) center/cover no-repeat; height: 500px;">
+      <div class="container d-flex flex-column justify-content-center align-items-start h-100">
+          <h1 class="fw-semibold mb-3">Tentang Skoola</h1>
+          <p class="mb-4 text-start w-50">Skoola adalah platform marketplace pendidikan yang menghubungkan penjual dan pembeli kebutuhan belajar dalam satu tempat.
 Kami hadir untuk memudahkan setiap orang menemukan dan menjual perlengkapan pendidikan dengan cepat, aman, dan terpercaya.</p>
-        </div>
-    </div>
+      </div>
+  </div>
 </section>
-
 <section class="container my-5">
-
   <div class="text-center mb-5">
     <h2 class="fw-bold">Skoola</h2>
     <p class="text-muted mx-auto" style="max-width: 700px;">
@@ -23,7 +21,6 @@ Kami hadir untuk memudahkan setiap orang menemukan dan menjual perlengkapan pend
       Skoola hadir sebagai solusi digital untuk menghubungkan sekolah, siswa, dan penjual perlengkapan pendidikan dalam satu platform yang aman dan efisien.
     </p>
   </div>
-
   <div class="row text-center mb-5">
     <div class="col-md-4">
       <div class="card border-0 shadow-sm p-4 h-100">
@@ -55,41 +52,7 @@ Kami hadir untuk memudahkan setiap orang menemukan dan menjual perlengkapan pend
         </div>
     </div>
   </div>
-
-  <!-- Tentang Skoola -->
-  {{-- <div class="row align-items-center gy-4 mb-5">
-    <div class="col-md-6 text-center">
-      <img 
-      src="{{ asset('asset/image/SkoolaAssets/4.png') }}" 
-      alt="Tentang Skoola" 
-      class="img-fluid rounded-3" 
-      style="max-width: 50%%; height: auto;">
-    </div>
-
-    <div class="col-md-6">
-      <h4 class="fw-bold mb-3">Solusi Digital untuk Kebutuhan Sekolah</h4>
-
-      <p class="text-muted mb-4">
-      Skoola adalah platform marketplace pendidikan yang memudahkan siapa pun menemukan, membeli, 
-      dan menjual perlengkapan sekolah secara online. Kami hadir untuk membangun ekosistem digital 
-      yang menghubungkan siswa, guru, dan penjual dalam satu ruang yang aman dan terpercaya.
-      </p>
-
-      <ul class="list-unstyled text-muted small mb-0">
-        <li class="mb-2">
-            <i class="bi bi-check-circle text-ijo me-2"></i> Ribuan produk sekolah terdaftar
-        </li>
-        <li class="mb-2">
-            <i class="bi bi-check-circle text-ijo me-2"></i> Penjual dan toko terpercaya
-        </li>
-        <li>
-            <i class="bi bi-check-circle text-ijo me-2"></i> Sistem transaksi aman dan cepat
-        </li>
-      </ul>
-    </div>
-  </div> --}}
-
-  <!-- Statistik -->
+  <!-- Info -->
   <div class="text-center mb-5">
     <div class="row justify-content-center">
       <div class="col-6 col-md-3">
