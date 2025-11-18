@@ -26,7 +26,7 @@ class StoreController extends Controller
 
     public function TokoMember(){
         $data['toko'] = Store::where('users_id', Auth::id())->first();
-        return view('Administrator.Toko.toko-member', $data);
+        return view('Member.Toko.toko-member', $data);
     }
 
     public function TokoMemberCreate(Request $request){
@@ -118,10 +118,10 @@ class StoreController extends Controller
         $toko->delete();
         return redirect()->back()->with('sukses','Toko berhasil dihapus.');
     }
-    
+
     public function Detail(String $id){
         $id = $this->decrypId($id);
         $data['store'] = Store::findOrFail($id);
-        return view('toko', $data);
+        return view('Member.Toko.toko-detail', $data);
     }
 }
