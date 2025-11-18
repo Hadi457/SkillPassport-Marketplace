@@ -19,17 +19,20 @@ class AdminController extends Controller
             abort(404);
         }
     }
+
     public function Dashboard(){
         $data['user'] = User::all();
         $data['store'] = Store::all();
         $data['produk'] = Product::all();
         return view('Administrator.dashboard', $data);
     }
+
     public function Beranda(){
         $data['stores'] = Store::all();
         $data['users'] = User::all();
         return view('beranda', $data);
     }
+
     public function User($id = null){
         if ($id) {
             $id = $this->decrypId($id);
@@ -38,6 +41,7 @@ class AdminController extends Controller
         $data['users'] = User::all();
         return view('Administrator.user', $data);
     }
+
     public function Toko($id = null){
         if ($id) {
             $id = $this->decrypId($id);
@@ -45,7 +49,7 @@ class AdminController extends Controller
         }
 
         $data['stores'] = Store::all();
-        $data['user'] = User::all(); // diperlukan untuk select owner di modal
+        $data['user'] = User::all();
         return view('Administrator.Toko.toko', $data);
     }
 

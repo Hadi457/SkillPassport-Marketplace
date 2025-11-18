@@ -19,13 +19,16 @@ class StoreController extends Controller
             abort(404);
         }
     }
+
     public function Index(){
         return view('toko');
     }
+
     public function TokoMember(){
         $data['toko'] = Store::where('users_id', Auth::id())->first();
         return view('Administrator.Toko.toko-member', $data);
     }
+
     public function TokoMemberCreate(Request $request){
         $validate = $request->validate([
             'nama_toko' => 'required|string|max:255',
@@ -35,13 +38,11 @@ class StoreController extends Controller
             'kontak_toko' => 'required|string|max:15',
         ]);
 
-        // Upload & simpan gambar ke folder storage/gambar-toko
         $image = $request->file('gambar');
         $filename = time(). "-" . $request->judul . "." . $image->getClientOriginalExtension();
         $image->storeAs('public/gambar-toko', $filename);
         $validate['gambar'] = $filename;
         
-        // Simpan Toko ke databse
         Store::create(
             [
                 'nama_toko' => $validate['nama_toko'],
@@ -54,6 +55,7 @@ class StoreController extends Controller
         );
         return redirect()->route('toko.member')->with('pesan', 'Toko berhasil dibuat.');
     }
+
     public function Store(Request $request){
         $data['user'] = User::all();
         $validate = $request->validate([
@@ -70,24 +72,19 @@ class StoreController extends Controller
             return back()->withErrors(['User ini sudah memiliki toko.']);
         }
 
-
-        // Upload & simpan gambar ke folder storage/gambar-toko
         $image = $request->file('gambar');
         $filename = time(). "-" . $request->judul . "." . $image->getClientOriginalExtension();
         $image->storeAs('public/gambar-toko', $filename);
         $validate['gambar'] = $filename;
         
-        // Simpan Toko ke databse
         Store::create($validate);
         return redirect()->route('toko.admin')->with('pesan', 'Toko berhasil dibuat.');
     }
 
 
     public function Update(Request $request, String $id){
-        // Mengubah id yang di enkripsi menjadi ke id asalnya
         $id = $this->decrypId($id);
 
-        // Validasi Input
         $validate = $request->validate([
             'nama_toko' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:1000',
@@ -107,12 +104,12 @@ class StoreController extends Controller
             $validate['gambar'] = $filename;
         }
 
-        // Profile di Update
         $toko->update($validate);
         return redirect()->route('toko.admin')->with('sukses','Berhasil mengubah toko');
     }
 
-    public function Delete(String $id){
+    public function Delete(String $id)
+    {
         $id = $this->decrypId($id);
         $toko = Store::findOrFail($id);
         if(Storage::exists('public/gambar-foto/'.$toko->file)){
@@ -121,6 +118,7 @@ class StoreController extends Controller
         $toko->delete();
         return redirect()->back()->with('sukses','Toko berhasil dihapus.');
     }
+    
     public function Detail(String $id){
         $id = $this->decrypId($id);
         $data['store'] = Store::findOrFail($id);

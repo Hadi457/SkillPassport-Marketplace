@@ -29,6 +29,7 @@ class UserController extends Controller
 
         return redirect()->route('user')->with('pesan', 'User baru berhasil ditambahkan.');
     }
+    
     public function Update(string $id)
     {
         $user = User::findOrFail($id);
@@ -41,16 +42,13 @@ class UserController extends Controller
             'password' => 'nullable|string|min:6',
         ]);
 
-        // Jika password diisi, update passwordnya
         if (!empty($validated['password'])) {
             $validated['password'] = bcrypt($validated['password']);
         } else {
-            // Jika tidak diisi, jangan update password
             unset($validated['password']);
         }
 
         $user->update($validated);
-
         return redirect()->route('user')->with('pesan', 'User berhasil diperbarui.');
     }
 
@@ -61,6 +59,7 @@ class UserController extends Controller
             abort(404);
         }
     }
+
     public function Delete(String $id){
         $id = $this->decrypId($id);
         $user = User::findOrFail($id);

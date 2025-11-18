@@ -14,12 +14,12 @@ class CategoryController extends Controller
         $validate = $request->validate([
             'nama_kategori' => 'required|string|max:255|unique:categories,nama_kategori',
         ]);
-        // Simpan kategori ke database
         Category::create([
             'nama_kategori' => $validate['nama_kategori'],
         ]);
         return redirect()->route('kategori.admin')->with('pesan', 'Kategori berhasil dibuat.');
     }
+
     public function Update(Request $request, String $id)
     {
         $id = $this->decrypId($id);
@@ -29,12 +29,10 @@ class CategoryController extends Controller
             'nama_kategori' => 'required|string|max:255|unique:categories,nama_kategori,' . $kategori->id,
         ]);
 
-        // Update kategori di database
-        $kategori->update([
-            'nama_kategori' => $validate['nama_kategori'],
-        ]);
+        $kategori->update($validate);
         return redirect()->route('kategori.admin')->with('pesan', 'Kategori berhasil diperbarui.');
     }
+
     public function decrypId($id){
         try {
             return Crypt::decrypt($id);
@@ -42,6 +40,7 @@ class CategoryController extends Controller
             abort(404);
         }
     }
+    
     public function Delete(String $id){
         $id = $this->decrypId($id);
         $kategori = Category::findOrFail($id);
