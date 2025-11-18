@@ -22,7 +22,7 @@
             </button>
             <div class="ms-3 collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <form action="" class="d-flex justify-content-center me-3">
+                    {{-- <form action="" class="d-flex justify-content-center me-3">
                         <div style="position: relative; width: 500px;">
                             <input
                             class="form-control"
@@ -42,7 +42,7 @@
                                 cursor: pointer;
                             "></i>
                         </div>
-                    </form>
+                    </form> --}}
                     <div class="d-flex justify-content-center mx-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>

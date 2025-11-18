@@ -70,7 +70,7 @@
     </div>
     <!-- Pesan Sukses atau Error -->
     @if (Session::get('pesan'))
-        <div class="alert alert-success alert-dismissible fade show mb-1 mt-2" role="alert">
+        <div class="alert alert-success alert-dismissible fade show mb-2 mt-2" role="alert">
             <i class="fas fa-check-circle me-2"></i>
             {{ Session::get('pesan') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -100,7 +100,7 @@
             <div class="card-body d-flex flex-column flex-md-row align-items-center gap-3">
 
                 <!-- Logo / Foto Toko -->
-                <img src="#" alt="Toko" class="rounded-circle border" width="100" height="100" style="object-fit: cover;">
+                <img src="{{ asset('storage/gambar-toko/' . $toko->gambar) }}" alt="Toko" class="rounded-circle border" width="100" height="100" style="object-fit: cover;">
 
                 <!-- Info Toko -->
                 <div>

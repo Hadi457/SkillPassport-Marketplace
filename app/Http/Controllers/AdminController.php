@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Store;
 use App\Models\User;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -18,7 +20,10 @@ class AdminController extends Controller
         }
     }
     public function Dashboard(){
-        return view('Administrator.dashboard');
+        $data['user'] = User::all();
+        $data['store'] = Store::all();
+        $data['produk'] = Product::all();
+        return view('Administrator.dashboard', $data);
     }
     public function Beranda(){
         $data['stores'] = Store::all();
@@ -42,5 +47,14 @@ class AdminController extends Controller
         $data['stores'] = Store::all();
         $data['user'] = User::all(); // diperlukan untuk select owner di modal
         return view('Administrator.Toko.toko', $data);
+    }
+
+    public function Kategori($id = null){
+        if ($id) {
+            $id = $this->decrypId($id);
+            $data['kategori'] = Category::findOrFail($id);
+        }
+        $data['kategori'] = Category::all();
+        return view('Administrator.kategori', $data);
     }
 }

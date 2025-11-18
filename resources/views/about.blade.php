@@ -57,7 +57,7 @@ Kami hadir untuk memudahkan setiap orang menemukan dan menjual perlengkapan pend
   </div>
 
   <!-- Tentang Skoola -->
-  <div class="row align-items-center gy-4 mb-5">
+  {{-- <div class="row align-items-center gy-4 mb-5">
     <div class="col-md-6 text-center">
       <img 
       src="{{ asset('asset/image/SkoolaAssets/4.png') }}" 
@@ -87,21 +87,21 @@ Kami hadir untuk memudahkan setiap orang menemukan dan menjual perlengkapan pend
         </li>
       </ul>
     </div>
-  </div>
+  </div> --}}
 
   <!-- Statistik -->
   <div class="text-center mb-5">
     <div class="row justify-content-center">
       <div class="col-6 col-md-3">
-        <h3 class="fw-bold text-ijo mb-0">10K+</h3>
+        <h3 class="fw-bold text-ijo mb-0">{{$produk->count()}}</h3>
         <p class="text-muted small">Produk Terdaftar</p>
       </div>
       <div class="col-6 col-md-3">
-        <h3 class="fw-bold text-ijo mb-0">500+</h3>
+        <h3 class="fw-bold text-ijo mb-0">{{$store->count()}}</h3>
         <p class="text-muted small">Toko Bergabung</p>
       </div>
       <div class="col-6 col-md-3">
-        <h3 class="fw-bold text-ijo mb-0">400+</h3>
+        <h3 class="fw-bold text-ijo mb-0">{{$user->count()}}</h3>
         <p class="text-muted small">Pengguna</p>
       </div>
     </div>

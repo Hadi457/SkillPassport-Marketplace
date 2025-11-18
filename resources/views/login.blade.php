@@ -64,9 +64,17 @@
                     <button type="submit" class="btn btn-login">Masuk</button>
                 </div>
             </form>
-            <div class="text-register text-center">
-                <small class="text-muted">Belum punya akun? </small>
-                <a href="/register">Daftar</a>
+            <div class="d-flex align-items-center justify-content-center gap-3 text-center py-3">
+                <div class="text-register text-center">
+                    <a href="/">Kembali</a>
+                </div>
+                <div class="text-register text-center">
+                    <label for="">|</label>
+                </div>
+                <div class="text-register text-center">
+                    <small class="text-muted">Belum punya akun? </small>
+                    <a href="/register">Daftar</a>
+                </div>
             </div>
         </div>
     </div>

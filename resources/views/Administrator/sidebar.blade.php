@@ -35,13 +35,16 @@
                 @endif
                 <hr>
                 <a href="/admin/dashboard" class="nav-link active">
-                    <i class="bi bi-speedometer me-2"></i> Dashboard
+                    <i class="fa-solid fa-gauge me-2"></i> Dashboard
                 </a>
                 <a href="/admin/user" class="nav-link active">
-                    <i class="bi bi-person me-2"></i> User
+                    <i class="fa-solid fa-user me-2"></i> User
                 </a>
                 <a href="/admin/toko" class="nav-link active">
-                    <i class="bi bi-shop-window me-2"></i> Toko
+                    <i class="fa-solid fa-shop me-2"></i> Toko
+                </a>
+                <a href="/admin/kategori" class="nav-link active">
+                    <i class="fa-solid fa-tag me-2"></i> Kategori
                 </a>
             </div>
             <div class="logout-btn p-4">
