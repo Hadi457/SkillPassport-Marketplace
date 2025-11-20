@@ -64,5 +64,4 @@ class AdminController extends Controller
         return view('Administrator.kategori', $data);
     }
 
-
 }

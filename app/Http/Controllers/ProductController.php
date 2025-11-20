@@ -110,12 +110,6 @@ class ProductController extends Controller
         // Jika user upload gambar baru
         if ($request->hasFile('gambar')) {
 
-            // === Jika ingin menghapus semua gambar lama (opsional) ===
-            // foreach ($product->imageProducts as $oldImg) {
-            //     Storage::delete('public/gambar-produk/'.$oldImg->nama_gambar);
-            //     $oldImg->delete();
-            // }
-
             foreach ($request->file('gambar') as $img) {
                 $filename = time() . '_' . uniqid() . '.' . $img->getClientOriginalExtension();
                 $img->storeAs('public/gambar-produk', $filename);

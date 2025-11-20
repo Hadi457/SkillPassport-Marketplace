@@ -32,10 +32,10 @@
 
                 <ul class="nav nav-pills flex-column">
                     @foreach ($category as $key => $item)
-                        <li class="nav-item">
+                        <li class="nav-item mb-1">
                             <a class="nav-link {{ $key == 0 ? 'active' : '' }}"
-                               data-bs-toggle="pill"
-                               href="#kategori{{ $item->id }}">
+                                data-bs-toggle="pill"
+                                href="#kategori{{ $item->id }}">
                                 {{ $item->nama_kategori ?? $item->name ?? 'Kategori' }}
                             </a>
                         </li>
@@ -48,19 +48,18 @@
         <div class="col-md-9">
             <div class="tab-content">
                 @foreach ($category as $key => $item_category)
-                    <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}"
-                         id="kategori{{ $item_category->id }}">
+                    <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="kategori{{ $item_category->id }}">
                         <div class="row g-4">
                             @forelse ($item_category->products as $p)
                                 <div class="col-6 col-md-3">
                                     <div class="card h-100 shadow-sm border-0">
                                         <a href="{{ route('produk.detail', Crypt::encrypt($p->id)) }}" class="nav-link">
                                             <img src="{{ $p->imageProducts->first()
-                                                            ? asset('storage/gambar-produk/' . $p->imageProducts->first()->nama_gambar)
-                                                            : asset('asset/image/SkoolaAssets/no-image.png') }}"
-                                                 class="card-img-top"
-                                                 alt="{{ $p->nama_produk }}"
-                                                 style="object-fit:cover; height:200px;">
+                                                ? asset('storage/gambar-produk/' . $p->imageProducts->first()->nama_gambar)
+                                                : asset('asset/image/SkoolaAssets/no-image.png') }}"
+                                                class="card-img-top"
+                                                alt="{{ $p->nama_produk }}"
+                                                style="object-fit:cover; height:200px;">
                                         </a>
                                         <div class="card-body">
                                             <h6 class="card-title mb-1">{{ Str::limit($p->nama_produk, 50, '...') }}</h6>

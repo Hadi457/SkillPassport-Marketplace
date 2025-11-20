@@ -27,61 +27,6 @@ class StoreController extends Controller
         return view('toko', $data);
     }
 
-    // public function TokoMember($id = null)
-    // {
-    //     if ($id) {
-    //         $id = $this->decrypId($id);
-    //         $data['products'] = Product::findOrFail($id);
-    //     }
-
-    //     $data['categories'] = Category::all();
-    //     // Ambil toko milik user login
-    //     $data['store'] = Store::where('users_id', Auth::id())->first();
-    //     if (!$data['store']) {
-    //         return redirect()->back()->with('error', 'Anda belum memiliki toko.');
-    //     }
-    //     // ambil toko milik user (bisa null)
-    //     $toko = Store::where('users_id', Auth::id())->first();
-    //     // ambil produk hanya jika toko ada, kalau nggak ada beri collection kosong
-    //     $products = $toko ? Product::where('stores_id', $toko->id)->get() : collect();
-
-    //     // selalu kirim variabel 'toko' dan 'products' ke view
-    //     return view('Member.Toko.toko-member', $data, ['toko' => $toko,'products' => $products,]);
-    // }
-    // public function TokoMember($id = null)
-    // {
-    //     if ($id) {
-    //         $id = $this->decrypId($id);
-    //         $data['products'] = Product::findOrFail($id);
-    //     }
-
-    //     $data['categories'] = Category::all();
-
-    //     // semua toko milik user
-    //     $stores = Store::where('users_id', Auth::id())->get();
-
-    //     if ($stores->isEmpty()) {
-    //         // user belum punya toko
-    //         $data['toko']     = null;
-    //         $data['products'] = collect(); // atau []
-    //     } else {
-    //         // user punya minimal 1 toko
-    //         $toko = $stores->first(); // ambil toko pertama
-    //         $data['toko']     = $toko;
-    //         // $data['products'] = Product::where('stores_id', $toko->id)->get();
-    //         $data['products'] = Product::where('stores_id', $stores->first()->id)->get();
-
-    //     }
-
-    //     // ambil produk untuk toko pertama misalnya
-
-    //     return view('Member.Toko.toko-member', [
-    //         'categories' => $data['categories'],
-    //         'stores'     => $stores,
-    //         $data
-    //     ]);
-    // }
-
     public function TokoMember($id = null)
     {
         if ($id) {
@@ -110,7 +55,6 @@ class StoreController extends Controller
         // cukup kirim $data saja
         return view('Member.Toko.toko-member', $data);
     }
-
 
     public function TokoMemberCreate(Request $request)
     {
