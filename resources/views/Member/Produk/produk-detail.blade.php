@@ -1,85 +1,14 @@
 @extends('navbar')
 @section('content')
 <link rel="stylesheet" href="{{asset('style/produk-detail.css')}}">
-
-{{-- <div class="container py-4">
-
-    <div class="row">
-
-        <!-- Kolom Gambar -->
-        <div class="col-lg-6 mb-4">
-        <div class="card shadow-sm">
-            <div class="card-body">
-
-            <!-- Gambar utama -->
-            <div class="mb-3">
-                <img src="{{asset('asset/image/SkoolaAssets/1.jpg')}}"
-                    class="img-fluid rounded"
-                    style="width:100%; object-fit:cover;">
-            </div>
-
-            <!-- Thumbnail -->
-            <div class="row g-2">
-                <div class="col-3 thumb">
-                <img src="{{asset('asset/image/SkoolaAssets/1.jpg')}}" class="img-fluid rounded">
-                </div>
-                <div class="col-3 thumb">
-                <img src="{{asset('asset/image/SkoolaAssets/2.jpg')}}" class="img-fluid rounded">
-                </div>
-                <div class="col-3 thumb">
-                <img src="{{asset('asset/image/SkoolaAssets/1.jpg')}}" class="img-fluid rounded">
-                </div>
-                <div class="col-3 thumb">
-                <img src="{{asset('asset/image/SkoolaAssets/1.jpg')}}" class="img-fluid rounded">
-                </div>
-            </div>
-
-            </div>
-        </div>
-        </div>
-
-        <!-- Kolom Detail Produk -->
-        <div class="col-lg-6 mb-4">
-        <div class="card shadow-sm h-100">
-            <div class="card-body d-flex flex-column">
-
-            <h3 class="mb-2">Nama Produk Dummy</h3>
-
-            <div class="mb-3">
-                <span class="price h4">Rp 150.000</span>
-                <span class="badge badge-stock ms-2">Stok: 12</span>
-            </div>
-
-            <p class="text-muted mb-3">
-                Ini adalah deskripsi dummy untuk produk.
-                Jelaskan fitur, bahan, ukuran, atau informasi lain mengenai produk.
-            </p>
-
-            <ul class="list-unstyled small text-muted mb-3">
-                <li><strong>Kategori:</strong> Elektronik</li>
-                <li><strong>Toko:</strong> Toko Sumber Jaya</li>
-                <li><strong>Tanggal Upload:</strong> 19 November 2025</li>
-                <li><strong>Dibuat:</strong> 2 hari yang lalu</li>
-            </ul>
-
-            <div class="mt-auto d-flex gap-2">
-                <button class="btn btn-outline-custom">
-                    <i class="bi bi-whatsapp me-2" style="color: #16DB65"></i>
-                    Chat Penjual
-                </button>
-                <button class="btn btn-primary-custom ms-auto">Lihat Toko</button>
-            </div>
-
-            </div>
-        </div>
-
-        </div>
-    </div>
-</div> --}}
 <div class="container py-4">
-
+    <div class="d-flex align-items-center mb-4 mt-4">
+        <a href="{{ url()->previous() }}" class="btn btn-light me-3">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h2 class="mb-0">Detail Produk</h2>
+    </div>
     <div class="row">
-
         <!-- Kolom Gambar -->
         <div class="col-lg-6 mb-4">
             <div class="card shadow-sm border-0">

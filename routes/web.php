@@ -15,6 +15,7 @@ Route::get('/', [AdminController::class, 'Beranda'])->name('beranda');
 Route::get('/about', [AboutController::class, 'Index'])->name('about');
 Route::get('/produk', [ProductController::class, 'Index'])->name('produk');
 Route::get('/produk/detail/{id}', [ProductController::class, 'Detail'])->name('produk.detail');
+Route::get('/search', [ProductController::class, 'search'])->name('produk.search');
 Route::get('/toko/detail/{id}', [StoreController::class, 'Detail'])->name('toko.detail');
 Route::get('/toko', [StoreController::class, 'Index'])->name('toko');
 

@@ -61,6 +61,12 @@
     </div>
 </div> 
 <div class="container my-5">
+    <div class="d-flex align-items-center mb-4 mt-4">
+        <a href="{{ url()->previous() }}" class="btn btn-light me-3">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h2 class="mb-0">Toko <strong>{{ $store->nama_toko }}</strong></h2>
+    </div>
     <!-- Profil Toko -->
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-body d-flex flex-column flex-md-row align-items-center gap-3">
@@ -111,7 +117,7 @@
                     </div>
 
                     <div class="d-flex p-2">
-                        <a class="btn btn-primary w-100">
+                        <a href="https://wa.me/{{ $p->store->kontak_toko }}?text=Halo%20saya%20tertarik%20dengan%20produk%20{{ urlencode($p->nama_produk) }}" class="btn btn-primary w-100">
                             <i class="bi bi-whatsapp me-2" style="color: #16DB65"></i> Chat Penjual
                         </a>
                     </div>

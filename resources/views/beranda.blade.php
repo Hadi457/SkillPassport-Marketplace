@@ -78,12 +78,12 @@
                         <img src="{{$p->imageProducts->first() ? asset('storage/gambar-produk/' . $p->imageProducts->first()->nama_gambar) : asset('asset/image/SkoolaAssets/no-image.png')}}" class="card-img-top" alt="{{ $p->nama_produk }}" style="object-fit:cover; height:200px;">
                     </a>
                     <div class="card-body">
-                        <h6 class="card-title mb-1">{{ $p->nama_produk }}</h6>
+                        <h6 class="card-title mb-1">{{ Str::limit($p->nama_produk, '50', '....') }}</h6>
                         <p class="text-muted small mb-2">Stok : {{ $p->stok }}</p>
                         <strong class="text-dark">Rp {{ number_format($p->harga, 0, ',', '.') }}</strong>
                     </div>
                     <div class="d-flex p-2">
-                        <a class="btn btn-primary w-100 me-2">
+                        <a href="https://wa.me/{{ $p->store->kontak_toko }}?text=Halo%20saya%20tertarik%20dengan%20produk%20{{ urlencode($p->nama_produk) }}" class="btn btn-primary w-100 me-2">
                             <i class="bi bi-whatsapp me-2" style="color: #16DB65"></i> Chat Penjual
                         </a>
                     </div>

@@ -22,15 +22,16 @@
                 </button>
                 <div class="ms-3 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {{-- <form action="" class="d-flex justify-content-center me-3">
+                        <form action="{{ route('produk.search') }}" method="GET" class="d-flex justify-content-center me-3">
                             <div style="position: relative; width: 500px;">
                                 <input
-                                class="form-control"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                                onfocus="this.style.outline='none'; this.style.boxShadow='none';"
-                                style="padding-right: 40px; border-color: #999; background-color: #f2f2f2; padding: 10px 45px 10px 15px; border-radius: 25px;"
+                                    name="q"
+                                    class="form-control"
+                                    type="text"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    onfocus="this.style.outline='none'; this.style.boxShadow='none';"
+                                    style="padding-right: 40px; border-color: #999; background-color: #f2f2f2; padding: 10px 45px 10px 15px; border-radius: 25px;"
                                 >
                                 <i class="fa-solid fa-magnifying-glass"
                                 style="
@@ -42,7 +43,7 @@
                                     cursor: pointer;
                                 "></i>
                             </div>
-                        </form> --}}
+                        </form>
                         <div class="d-flex justify-content-center mx-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Home</a>
@@ -89,10 +90,9 @@
                     <div class="col-md-2">
                         <h6 class="fw-semibold mb-3">Navigasi</h6>
                         <ul class="list-unstyled text-muted">
-                            <li><a href="#" class="text-decoration-none text-muted">Beranda</a></li>
-                            <li><a href="#" class="text-decoration-none text-muted">Produk</a></li>
-                            <li><a href="#" class="text-decoration-none text-muted">Toko</a></li>
-                            <li><a href="#" class="text-decoration-none text-muted">Tentang Kami</a></li>
+                            <li><a href="/" class="text-decoration-none text-muted">Beranda</a></li>
+                            <li><a href="/produk" class="text-decoration-none text-muted">Produk</a></li>
+                            <li><a href="/toko" class="text-decoration-none text-muted">Toko</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">

@@ -154,4 +154,16 @@ class ProductController extends Controller
         $data['product'] = Product::with(['imageProducts', 'category', 'store'])->findOrFail($id);
         return view('Member.Produk.produk-detail', $data);
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('q');
+
+        // Cari berdasarkan nama produk / deskripsi
+        $products = Product::where('nama_produk', 'like', '%' . $keyword . '%')
+            ->orWhere('deskripsi', 'like', '%' . $keyword . '%')
+            ->get();
+
+        return view('Member.Produk.search-produk', compact('products', 'keyword'));
+    }
 }

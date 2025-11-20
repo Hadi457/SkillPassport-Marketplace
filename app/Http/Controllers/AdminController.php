@@ -63,4 +63,6 @@ class AdminController extends Controller
         $data['kategori'] = Category::all();
         return view('Administrator.kategori', $data);
     }
+
+
 }
