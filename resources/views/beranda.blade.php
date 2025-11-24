@@ -11,46 +11,44 @@
             <a class="btn btn-primary btn-lg" href="/produk" role="button">Mulai Belanja</a>
         </p>
     </div>
-    <div class="d-flex align-items-start justify-content-between mb-3 mt-5">
-        <div>
+    <div class="d-flex flex-column flex-md-row align-items-md-start justify-content-between mb-3 mt-5">
+        <div class="mb-3 mb-md-0">
             <h2 class="h3 mb-1">Toko Terbaru</h2>
             <p class="text-muted mb-0">
                 Jelajahi berbagai toko yang menawarkan kebutuhan sekolah terbaik untukmu.
             </p>
         </div>
-        <div class="align-self-center">
-            <a href="/toko" class="btn btn-lihat">Lihat Semua</a>
+        <div class="align-self-md-center">
+            <a href="/toko" class="btn btn-lihat w-100 w-md-auto">Lihat Semua</a>
         </div>
     </div>
-    <div class="row">
+    <div class="row g-3">
         @foreach ($stores as $item)
-            <div class="col-4">
-                <div class="card shadow-sm">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card shadow-sm h-100">
                     <div class="card-body">
                         <div class="d-flex align-items-start mb-2">
-                            <div class="bg rounded-3 d-flex align-items-center justify-content-center me-3" style="width:54px;height:54px;border-radius:10px;">
-                                <img src="{{ asset('storage/gambar-toko/' . $item->gambar) }}" style="object-fit: cover;" width="50" height="50" alt="">
+                            <div class="rounded-3 d-flex align-items-center justify-content-center me-3"
+                                style="width:54px;height:54px;overflow:hidden;">
+                                <img src="{{ asset('storage/gambar-toko/' . $item->gambar) }}"
+                                    style="object-fit: cover; width: 100%; height: 100%;">
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="card-title mb-0">{{$item->nama_toko}}</h5>
-                                <small>
-                                    <i class="bi bi-geo-alt-fill me-1 text-dark"></i>
-                                    {{$item->alamat}}
+                                <h5 class="card-title mb-0">{{ $item->nama_toko }}</h5>
+                                <small class="text-muted">
+                                    <i class="bi bi-geo-alt-fill me-1"></i>{{ $item->alamat }}
                                 </small>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center mt-3">
+                        <small class="text-muted d-block mt-2">
+                            <i class="fa-brands fa-whatsapp me-2"></i>{{ $item->kontak_toko }}
+                        </small>
+                        <div class="d-flex align-items-center justify-content-between mt-3">
                             <small class="text-muted">
-                                <i class="fa-brands fa-whatsapp text-dark me-2"></i>
-                                {{$item->kontak_toko}}
+                                <i class="fa-solid fa-user me-2"></i>{{ $item->user->name }}
                             </small>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <small class="text-muted">
-                                <i class="fa-solid fa-user text-dark me-2"></i>
-                                {{$item->user->name}}
-                            </small>
-                            <a href="{{route('toko.detail',Crypt::encrypt($item->id))}}" class="btn btn-dark">Kunjungi</a>
+                            <a href="{{ route('toko.detail', Crypt::encrypt($item->id)) }}"
+                            class="btn btn-dark btn-sm">Kunjungi</a>
                         </div>
                     </div>
                 </div>
@@ -58,19 +56,19 @@
         @endforeach
     </div>
 </section>
-<section class="container mt-5">
-    <div class="d-flex align-items-start justify-content-between mb-3">
-        <div>
+<section class="container mt-lg-5 mt-md-1">
+    <div class="d-flex flex-column flex-md-row align-items-md-start justify-content-between mb-3">
+        <div class="mb-3 mb-md-0">
             <h2 class="h3 mb-1">Produk Terbaru</h2>
             <p class="text-muted mb-0">Temukan berbagai kebutuhan sekolah terbaru di Skoola.</p>
         </div>
-        <div class="align-self-center">
-            <a href="/produk" class="btn btn-lihat">Lihat Semua</a>
+        <div class="align-self-md-center">
+            <a href="/produk" class="btn btn-lihat w-100 w-md-auto">Lihat Semua</a>
         </div>
     </div>
     <div class="row g-3">
         @foreach($products as $p)
-            <div class="col-6 col-md-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 shadow-sm border-0">
                     <a href="{{route('produk.detail',Crypt::encrypt($p->id))}}" class="nav-link">
                         <img src="{{$p->imageProducts->first() ? asset('storage/gambar-produk/' . $p->imageProducts->first()->nama_gambar) : asset('asset/image/SkoolaAssets/no-image.png')}}" class="card-img-top" alt="{{ $p->nama_produk }}" style="object-fit:cover; height:200px;">

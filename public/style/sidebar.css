@@ -29,7 +29,7 @@ hr{
 
 .sidebar {
 width: 250px;
-background-color: var(--black); /* warna sidebar */
+background-color: var(--black);
 color: white;
 display: flex;
 flex-direction: column;

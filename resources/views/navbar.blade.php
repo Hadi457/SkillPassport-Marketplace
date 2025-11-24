@@ -12,16 +12,16 @@
         <title>Skoola</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-white">
             <div class="container py-3">
                 <h2 class="logo" href="/">Skoola</h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="ms-3 collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <form action="{{ route('produk.search') }}" method="GET" class="d-flex justify-content-center me-3">
-                            <div style="position: relative; width: 500px;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+                        <form action="{{ route('produk.search') }}" method="GET" class="d-flex my-2 my-lg-0 mx-lg-3 w-100 w-md-50" style="max-width:600px;">
+                            <div style="position: relative; width: 500px;" class="input-group w-100">
                                 <input
                                     name="q"
                                     class="form-control"

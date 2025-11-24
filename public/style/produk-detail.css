@@ -68,25 +68,21 @@
     padding-top: 20px;
 }
 
-/* Heading */
 h3, h5, .fw-bold {
 color: var(--black);
 }
 
-/* Harga */
 .price {
     color: var(--black);
     font-weight: 700;
 }
 
-/* Badge stok */
 .badge-stock {
     background: var(--malachite) !important;
     color: var(--black) !important;
     font-weight: 600;
 }
 
-/* Tombol utama */
 .btn-primary-custom {
     background: var(--black);
     border-color: var(--black);
@@ -99,7 +95,6 @@ color: var(--black);
     color: #fff;
 }
 
-/* Tombol outline */
 .btn-outline-custom {
     border-color: var(--black);
     color: var(--black);
@@ -110,12 +105,10 @@ color: var(--black);
     color: #fff;
 }
 
-/* Thumbnail border highlight */
 .thumb img:hover {
     outline: 2px solid var(--malachite);
 }
 
-/* Produk terkait harga */
 .related-price {
     color: var(--malachite);
     font-weight: 600;

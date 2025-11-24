@@ -45,7 +45,7 @@
                     <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="kategori{{ $item_category->id }}">
                         <div class="row g-4">
                             @forelse ($item_category->products as $p)
-                                <div class="col-6 col-md-3">
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                     <div class="card h-100 shadow-sm border-0">
                                         <a href="{{ route('produk.detail', Crypt::encrypt($p->id)) }}" class="nav-link">
                                             <img src="{{ $p->imageProducts->first()

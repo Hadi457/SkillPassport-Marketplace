@@ -9,7 +9,7 @@
 <section class="container mb-5">
     <div class="row">
         @foreach ($stores as $item)
-            <div class="col-4 mb-4">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <div class="d-flex align-items-start mb-2">
