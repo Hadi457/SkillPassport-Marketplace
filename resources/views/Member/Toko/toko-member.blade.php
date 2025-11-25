@@ -347,15 +347,11 @@
                     <h5 class="modal-title" id="modalUpdateProductLabel">Edit Produk</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 {{-- ROUTE KE UPDATE --}}
                 <form action="{{ route('produk.update', $product->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
-
                     <div class="modal-body">
-
                         <input type="hidden" name="stores_id" value="{{ $product->stores_id }}">
-
                         {{-- Kategori --}}
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Kategori <span class="text-danger">*</span></label>
@@ -371,7 +367,6 @@
                                 </select>
                             </div>
                         </div>
-
                         {{-- Nama Produk --}}
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Nama Produk <span class="text-danger">*</span></label>
@@ -381,7 +376,6 @@
                                     value="{{ $product->nama_produk }}">
                             </div>
                         </div>
-
                         {{-- Harga --}}
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Harga (Rp) <span class="text-danger">*</span></label>
@@ -391,7 +385,6 @@
                                     value="{{ $product->harga }}">
                             </div>
                         </div>
-
                         {{-- Stok --}}
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Stok <span class="text-danger">*</span></label>
@@ -420,7 +413,6 @@
                                 </div>
                             @endforeach
                         </div>
-
                         {{-- Upload Gambar Baru --}}
                         <div class="mb-3">
                             <label class="form-label fw-semibold">
@@ -432,9 +424,7 @@
                             </div>
                             <small class="text-muted">Kosongkan jika tidak ingin menambah gambar.</small>
                         </div>
-
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Update</button>
