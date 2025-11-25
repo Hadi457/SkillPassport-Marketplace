@@ -19,13 +19,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
         ]);
 
-        User::create([
-            'name' => $validated['name'],
-            'username' => $validated['username'],
-            'kontak' => $validated['kontak'],
-            'role' => $validated['role'],
-            'password' => bcrypt($validated['password']),
-        ]);
+        User::create($validated);
 
         return redirect()->route('user')->with('pesan', 'User baru berhasil ditambahkan.');
     }
