@@ -43,15 +43,13 @@ class StoreController extends Controller
         if ($stores->isEmpty()) {
             // user belum punya toko
             $data['toko']     = null;
-            $data['products'] = collect();   // atau []
+            $data['products'] = collect();
         } else {
             // user punya minimal 1 toko
-            $toko = $stores->first();        // ambil toko pertama
+            $toko = $stores->first();
             $data['toko']     = $toko;
             $data['products'] = Product::where('stores_id', $toko->id)->get();
         }
-
-        // cukup kirim $data saja
         return view('Member.Toko.toko-member', $data);
     }
 
@@ -118,6 +116,8 @@ class StoreController extends Controller
             'alamat' => 'required|string|max:500',
             'kontak_toko' => 'required|string|max:15',
             'users_id' => 'required|unique:stores|exists:users,id',
+        ],[
+            'users_id.unique' => 'Pengguna ini sudah mempunyai toko.'
         ]);
 
         // Cegah user membuat toko lebih dari 1 (karena users_id unique)
@@ -176,9 +176,6 @@ class StoreController extends Controller
     public function Detail(String $id){
         $id = $this->decrypId($id);
         $data['store'] = Store::with('user')->findOrFail($id);
-
-        // ambil produk hanya milik toko ini + eager load gambar
-        // GANTI 'imageProducts' => kalau di Product model kamu namakan relasi 'images', ubah jadi 'images'
         $data['products'] = $data['store']->products()->with(['imageProducts'])->get();
         return view('Member.Toko.toko-detail', $data);
     }
