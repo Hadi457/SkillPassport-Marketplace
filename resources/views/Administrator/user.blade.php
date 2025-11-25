@@ -73,7 +73,7 @@
                     <h5 class="modal-title" id="editUserLabel">Edit User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('user.update', Crypt::encrypt($item->id)) }}" method="post">
+                <form action="{{ route('user.update', $item->id) }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <!-- Name -->

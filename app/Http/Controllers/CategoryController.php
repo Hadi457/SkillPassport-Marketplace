@@ -22,7 +22,7 @@ class CategoryController extends Controller
         $validate = $request->validate([
             'nama_kategori' => 'required|string|max:255|unique:categories,nama_kategori',
         ]);
-        Category::create([$validate]);
+        Category::create($validate);
         return redirect()->route('kategori.admin')->with('pesan', 'Kategori berhasil dibuat.');
     }
 
