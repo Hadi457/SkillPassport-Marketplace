@@ -42,7 +42,7 @@
                                 "></i>
                             </div>
                         </form>
-                        <div class="d-flex justify-content-center mx-auto">
+                        <div class="d-flex justify-content-center mx-auto gap-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Home</a>
                             </li>
