@@ -203,7 +203,7 @@
                     <td>{{ $item->user->name }}</td>
                     <td>
                         <a data-bs-toggle="modal" data-bs-target="#editToko{{ $item->id }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>
-                        <a href="{{route('toko.admin.delete',Crypt::encrypt($item->id))}}" class="btn btn-sm btn-warning"><i class="bi bi-trash-fill"></i></a>
+                        <a href="{{route('toko.admin.delete',Crypt::encrypt($item->id))}}" onclick="return confirm('Hapus data ini?')" class="btn btn-sm btn-warning"><i class="bi bi-trash-fill"></i></a>
                     </td>
                 </tr>
             @endforeach
