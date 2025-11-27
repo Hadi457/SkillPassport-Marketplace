@@ -25,14 +25,14 @@ class ProductController extends Controller
     }
 
     public function Index(){
-        $data['category'] = Category::with(['products.imageProducts'])->get();
+        $data['category'] = Category::with(['products.imageProducts'])->first()->get();
         return view('produk', $data);
     }
 
     public function Create()
     {
         $data['categories'] = Category::all();
-        $data['store'] = Store::where('users_id', Auth::id())->first();
+        $data['store'] = Store::where('users_id', Auth::id())->get();
         if (!$data['store']) {
             return redirect()->back()->with('error', 'Anda belum memiliki toko.');
         }
@@ -52,8 +52,8 @@ class ProductController extends Controller
             'gambar.*' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
         $product = Product::create([
-            'categories_id' => $request->categories_id,
             'stores_id' => $request->stores_id,
+            'categories_id' => $request->categories_id,
             'nama_produk' => $request->nama_produk,
             'harga' => $request->harga,
             'stok' => $request->stok,
